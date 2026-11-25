@@ -38,9 +38,9 @@ def action(light: str, color_tuple, act: Style):
         
 
 # Replace old serials with Tasmota device names
-light0_sn = "Light_20"
-light1_sn = "Light_71"
-light2_sn = "Light_80"
+light0_sn = "Light_53"
+light1_sn = "Light_57"
+light2_sn = "Light_69"
 
 drum01 = (23, 0, 200)
 drum02 = (255, 20, 255)
@@ -109,11 +109,14 @@ info_array = [
         
     (20.81, light2_sn, (255, 200, 75), Style.FADE),
     (21.81, light1_sn, (255, 200, 75), Style.GLOW),
-    # --- guitar
     
+    (22.81, light0_sn, (255, 200, 75), Style.FADE),
     
+    (24.531, light2_sn, (255, 125, 0), Style.CHANGE),
+    (24.542, light1_sn, (255, 125, 0), Style.CHANGE),
+    (24.553, light0_sn, (255, 125, 0), Style.CHANGE),
     
-    (25.165, light2_sn, (5, 255, 100), Style.CHANGE),      # LAST value is dummy, DON NOT use
+    (25.165, light2_sn, (5, 255, 100), Style.CHANGE),      # LAST value is dummy, DO NOT use
 ]
 
 def start():
@@ -138,6 +141,7 @@ def start():
             # lk.set_color(next_color, next_light)
             action(next_light, next_color, next_act)
             print("Time: " + str(next_time_code) + " i: " + str(i))
+            
             next_time_code = info_array[i][0]
             next_light = info_array[i][1]
             next_color = info_array[i][2]
